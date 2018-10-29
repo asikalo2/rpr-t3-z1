@@ -16,14 +16,9 @@ MobilniBroj ima konstruktor MobilniBroj(int mobilnaMreza, String broj) pri čemu
 MedunarodniBroj ima konstruktor MedunarodniBroj(String drzava, String broj) pri čemu string drzava sadrži
  kompletan pozivni broj za državu npr. "+387".*/
 
-public class TelefonskiBroj {
+public abstract class TelefonskiBroj {
 
-    public String ispisi(){
+    public abstract String ispisi();
 
-
-    }
-
-    public int hashCode(){
-
-    }
+    public abstract int hashCode();
 }
