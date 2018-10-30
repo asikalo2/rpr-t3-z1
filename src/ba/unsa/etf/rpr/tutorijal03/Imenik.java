@@ -1,6 +1,10 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Set;
+
+
 
 /*void dodaj(String ime, TelefonskiBroj broj)
 String dajBroj(String ime) - vraća telefonski broj osobe pod imenom ime u formi stringa pozivajući metodu ispisi() klase
@@ -31,15 +35,37 @@ public class Imenik {
 
     String dajBroj(String ime){
         return imenik.get(ime).ispisi();
-
     }
 
-    String dajIme(TelefonskiBroj broj){
+    String dajIme (TelefonskiBroj broj){
+        Set set = imenik.entrySet();
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry)iterator.next();
+            FiksniBroj temp = (FiksniBroj) mentry.getValue();
+            String templ = (String) mentry.getKey();
+            if (temp == broj) {
+                return templ;
+            }
+        }
         return null;
     }
 
-    String naSlovo(char s){
-        return null;
+    String naSlovo(char s) {
+        Set set = imenik.entrySet();
+        String rezultat = "";
+        Iterator iterator = set.iterator();
+        int brojac = 1;
+        while (iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry) iterator.next();
+            String tempIme = (String) mentry.getKey();
+            TelefonskiBroj tempBroj = (TelefonskiBroj) mentry.getValue();
+            if (tempIme.charAt(0) == s) {
+                rezultat += Integer.toString(brojac) + ". " + tempIme + " - " + tempBroj.ispisi() + "\n";
+                brojac++;
+            }
+        }
+        return rezultat;
 
     }
 
@@ -60,7 +86,21 @@ public class Imenik {
         return rezultat;
     }
 
-    Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){
-        return null;
+
+    Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
+        Set set = imenik.entrySet();
+        Set<TelefonskiBroj> rezultat = new HashSet<TelefonskiBroj>();
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry) iterator.next();
+            if (mentry.getValue() instanceof FiksniBroj) {
+                FiksniBroj temp = (FiksniBroj) mentry.getValue();
+                String broj = (String) mentry.getKey();
+                if (temp.getGrad() == g) {
+                    rezultat.add(temp);
+                }
+            }
+        }
+        return rezultat;
     }
 }
