@@ -18,6 +18,11 @@ MedunarodniBroj ima konstruktor MedunarodniBroj(String drzava, String broj) pri 
 
 public abstract class TelefonskiBroj {
 
+  /*  @Override
+    public int CompareTo(TelefonskiBroj a){
+        return ispisi().compareTo(a.ispisi());
+    }
+*/
     public abstract String ispisi();
 
    // public abstract int hashCode();

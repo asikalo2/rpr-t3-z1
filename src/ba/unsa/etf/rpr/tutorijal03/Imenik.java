@@ -99,7 +99,7 @@ public class Imenik {
                 String broj = (String) mentry.getKey();
                 if (temp.getGrad() == g) {
                     rezultat.add(temp);
-                 //  novi.add(temp);
+                  // novi.add(temp);
                 }
             }
         }
