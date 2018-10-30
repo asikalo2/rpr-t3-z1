@@ -33,11 +33,11 @@ public class Imenik {
         imenik.put(ime, broj);
     }
 
-    String dajBroj(String ime){
+    public String dajBroj(String ime){
         return imenik.get(ime).ispisi();
     }
 
-    String dajIme (TelefonskiBroj broj){
+    public String dajIme (TelefonskiBroj broj){
         Set set = imenik.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
@@ -51,7 +51,7 @@ public class Imenik {
         return null;
     }
 
-    String naSlovo(char s) {
+    public String naSlovo(char s) {
         Set set = imenik.entrySet();
         String rezultat = "";
         Iterator iterator = set.iterator();
@@ -69,7 +69,7 @@ public class Imenik {
 
     }
 
-    Set<String> izGrada(FiksniBroj.Grad g){
+    public Set<String> izGrada(FiksniBroj.Grad g){
         Set set = imenik.entrySet();
         Set<String> rezultat = new HashSet<String>();
         Iterator iterator = set.iterator();
@@ -87,9 +87,9 @@ public class Imenik {
     }
 
 
-    Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
+    public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
         Set set = imenik.entrySet();
-     //   Set novi = new TreeSet(Collections.reverseOrder());
+        Set novi = new TreeSet<>();
         Set<TelefonskiBroj> rezultat = new HashSet<TelefonskiBroj>();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
@@ -99,10 +99,10 @@ public class Imenik {
                 String broj = (String) mentry.getKey();
                 if (temp.getGrad() == g) {
                     rezultat.add(temp);
-         //           novi.add(temp);
+                 //  novi.add(temp);
                 }
             }
         }
-        return rezultat;//novi;
+        return rezultat;
     }
 }
