@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal03;
 public class Main {
 
     public static void main(String[] args) {
-	    System.out.println("Cilj vježbe je napraviti aplikaciju \"ETF Telefonski imenik\". Aplikacija se treba sastojati od sljedećih klasa:\n" +
+	    /*System.out.println("Cilj vježbe je napraviti aplikaciju \"ETF Telefonski imenik\". Aplikacija se treba sastojati od sljedećih klasa:\n" +
 				"Apstraktna klasa TelefonskiBroj sadrži javnu apstraktnu metodu String ispisi() koja vraća broj u tekstualnoj formi pogodnoj za ispis, te apstraktnu metodu int hashCode() objašnjenu na predavanjima. Iz ove klase izvedene su sljedeće klase:\n" +
 				"FiksniBroj sadrži konstruktor FiksniBroj(Grad grad, String broj). Parametar broj je dio telefonskog broja bez pozivnog broja npr. \"123-456\", a grad je promjenljiva pobrojanog tipa koji označava pozivni broj koji treba koristiti npr.:\n" +
 				"\tenum Grad { SARAJEVO, TUZLA, ZENICA…}\n" +
@@ -24,6 +24,13 @@ public class Main {
 				"Dodajte nedostajuće testove po potrebi. Prilikom rješavanja zadatka obavezno se pridržavati pravila rada koja su navedena na predavanjima, između ostalog:\n" +
 				"ispravno imenovanje paketa, klasa, metoda i promjenljivih,\n" +
 				"primjenu komentara,\n" +
-				"atomic commits.\n");
+				"atomic commits.\n");*/
+
+	    FiksniBroj fb = new FiksniBroj(FiksniBroj.Grad.SARAJEVO, "666-666");
+	    System.out.println(fb.ispisi());
+		MedunarodniBroj mb = new MedunarodniBroj("+387","33 567-890");
+		System.out.println(mb.ispisi());
+		MobilniBroj mb1 = new MobilniBroj(1,"567-890");
+		System.out.println(mb1.ispisi());
     }
 }

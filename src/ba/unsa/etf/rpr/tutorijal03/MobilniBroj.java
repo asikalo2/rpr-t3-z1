@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
+import java.util.Objects;
+
 public class MobilniBroj extends TelefonskiBroj{
 
     private int mobilnaMreza;
@@ -10,8 +12,14 @@ public class MobilniBroj extends TelefonskiBroj{
         this.broj=broj;
     }
 
-    public String Ispisi(){
+    @Override
+    public String ispisi() {
         String str = Integer.toString(mobilnaMreza);
-        return (str + "/" + broj);
+        return ("06" + str + "/" + broj);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.mobilnaMreza, this.broj);
     }
 }

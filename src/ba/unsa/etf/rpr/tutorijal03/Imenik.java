@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
+import java.util.Set;
+
 /*void dodaj(String ime, TelefonskiBroj broj)
 String dajBroj(String ime) - vraća telefonski broj osobe pod imenom ime u formi stringa pozivajući metodu ispisi() klase
 TelefonskiBroj,
@@ -22,23 +24,24 @@ public class Imenik {
     }
 
     String dajBroj(String ime){
+        return null;
 
     }
 
     String dajIme(TelefonskiBroj broj){
-
-
+        return null;
     }
 
     String naSlovo(char s){
+        return null;
 
     }
 
-    Set<String> izGrada(Grad g){
-
+    Set<String> izGrada(FiksniBroj.Grad g){
+        return null;
     }
 
-    Set<TelefonskiBroj> izGradaBrojevi(Grad g){
-
+    Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){
+        return null;
     }
 }
