@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal03;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.Set;
-
+import java.util.TreeSet;
 
 
 /*void dodaj(String ime, TelefonskiBroj broj)
@@ -89,6 +89,7 @@ public class Imenik {
 
     Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
         Set set = imenik.entrySet();
+     //   Set novi = new TreeSet(Collections.reverseOrder());
         Set<TelefonskiBroj> rezultat = new HashSet<TelefonskiBroj>();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
@@ -98,9 +99,10 @@ public class Imenik {
                 String broj = (String) mentry.getKey();
                 if (temp.getGrad() == g) {
                     rezultat.add(temp);
+         //           novi.add(temp);
                 }
             }
         }
-        return rezultat;
+        return rezultat;//novi;
     }
 }
