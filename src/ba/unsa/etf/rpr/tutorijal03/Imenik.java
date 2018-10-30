@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-import java.util.Set;
+import java.util.*;
 
 /*void dodaj(String ime, TelefonskiBroj broj)
 String dajBroj(String ime) - vraća telefonski broj osobe pod imenom ime u formi stringa pozivajući metodu ispisi() klase
@@ -19,12 +19,18 @@ stringu koji se dobije metodom ispisi().
 */
 public class Imenik {
 
-    public void dodaj(String ime, TelefonskiBroj broj){
+    private HashMap<String, TelefonskiBroj> imenik;
 
+    Imenik() {
+        imenik = new HashMap<String, TelefonskiBroj>();
+    }
+
+    public void dodaj(String ime, TelefonskiBroj broj){
+        imenik.put(ime, broj);
     }
 
     String dajBroj(String ime){
-        return null;
+        return imenik.get(ime).ispisi();
 
     }
 
@@ -38,7 +44,20 @@ public class Imenik {
     }
 
     Set<String> izGrada(FiksniBroj.Grad g){
-        return null;
+        Set set = imenik.entrySet();
+        Set<String> rezultat = new HashSet<String>();
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry)iterator.next();
+            if (mentry.getValue() instanceof FiksniBroj) {
+                FiksniBroj temp = (FiksniBroj) mentry.getValue();
+                String broj = (String) mentry.getKey();
+                if (temp.getGrad() == g) {
+                    rezultat.add(broj);
+                }
+            }
+        }
+        return rezultat;
     }
 
     Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){

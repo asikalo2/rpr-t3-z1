@@ -15,6 +15,10 @@ public class FiksniBroj extends TelefonskiBroj {
 
     }
 
+    public Grad getGrad() {
+        return grad;
+    }
+
     @Override
     public String ispisi() {
         return getKodGrada(this.grad) + "/" + this.broj;
