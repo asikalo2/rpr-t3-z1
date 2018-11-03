@@ -16,15 +16,15 @@ MobilniBroj ima konstruktor MobilniBroj(int mobilnaMreza, String broj) pri čemu
 MedunarodniBroj ima konstruktor MedunarodniBroj(String drzava, String broj) pri čemu string drzava sadrži
  kompletan pozivni broj za državu npr. "+387".*/
 
-public abstract class TelefonskiBroj {
+public abstract class TelefonskiBroj implements Comparable<TelefonskiBroj> {
 
-  /*  @Override
-    public int CompareTo(TelefonskiBroj a){
+    @Override
+    public int compareTo(TelefonskiBroj a) {
         return ispisi().compareTo(a.ispisi());
     }
-*/
+
     public abstract String ispisi();
 
-   // public abstract int hashCode();
+    // public abstract int hashCode();
 
 }

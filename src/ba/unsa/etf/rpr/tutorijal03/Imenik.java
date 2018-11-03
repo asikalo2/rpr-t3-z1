@@ -90,7 +90,7 @@ public class Imenik {
     public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
         Set set = imenik.entrySet();
         Set novi = new TreeSet<>();
-        Set<TelefonskiBroj> rezultat = new HashSet<TelefonskiBroj>();
+        Set<TelefonskiBroj> rezultat = new TreeSet<TelefonskiBroj>();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry) iterator.next();
