@@ -19,7 +19,7 @@ MedunarodniBroj ima konstruktor MedunarodniBroj(String drzava, String broj) pri 
 public abstract class TelefonskiBroj implements Comparable<TelefonskiBroj> {
 
     @Override
-    public int compareTo(TelefonskiBroj a) {
+    public final int compareTo(TelefonskiBroj a) {
         return ispisi().compareTo(a.ispisi());
     }
 

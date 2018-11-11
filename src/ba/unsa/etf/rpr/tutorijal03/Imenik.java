@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -23,35 +22,35 @@ stringu koji se dobije metodom ispisi().
 */
 public class Imenik {
 
-    private HashMap<String, TelefonskiBroj> imenik;
+    private Map<String, TelefonskiBroj> imenik;
 
     Imenik() {
         imenik = new HashMap<String, TelefonskiBroj>();
     }
 
-    public void dodaj(String ime, TelefonskiBroj broj){
+    public final void dodaj(String ime, TelefonskiBroj broj){
         imenik.put(ime, broj);
     }
 
-    public String dajBroj(String ime){
+    public final String dajBroj(String ime){
         return imenik.get(ime).ispisi();
     }
 
-    public String dajIme (TelefonskiBroj broj){
+    public final String dajIme (TelefonskiBroj broj){
         Set set = imenik.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry)iterator.next();
             FiksniBroj temp = (FiksniBroj) mentry.getValue();
             String templ = (String) mentry.getKey();
-            if (temp == broj) {
+            if (temp.equals(broj)) {
                 return templ;
             }
         }
         return null;
     }
 
-    public String naSlovo(char s) {
+    public final String naSlovo(char s) {
         Set set = imenik.entrySet();
         String rezultat = "";
         Iterator iterator = set.iterator();
@@ -61,7 +60,7 @@ public class Imenik {
             String tempIme = (String) mentry.getKey();
             TelefonskiBroj tempBroj = (TelefonskiBroj) mentry.getValue();
             if (tempIme.charAt(0) == s) {
-                rezultat += Integer.toString(brojac) + ". " + tempIme + " - " + tempBroj.ispisi() + "\n";
+                rezultat = rezultat.concat(Integer.toString(brojac) + ". " + tempIme + " - " + tempBroj.ispisi() + "\n");
                 brojac++;
             }
         }
@@ -69,7 +68,7 @@ public class Imenik {
 
     }
 
-    public Set<String> izGrada(FiksniBroj.Grad g){
+    public final Set<String> izGrada(FiksniBroj.Grad g){
         Set set = imenik.entrySet();
         Set<String> rezultat = new HashSet<String>();
         Iterator iterator = set.iterator();
@@ -87,16 +86,14 @@ public class Imenik {
     }
 
 
-    public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
+    public final Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
         Set set = imenik.entrySet();
-        Set novi = new TreeSet<>();
         Set<TelefonskiBroj> rezultat = new TreeSet<TelefonskiBroj>();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry) iterator.next();
             if (mentry.getValue() instanceof FiksniBroj) {
                 FiksniBroj temp = (FiksniBroj) mentry.getValue();
-                String broj = (String) mentry.getKey();
                 if (temp.getGrad() == g) {
                     rezultat.add(temp);
                   // novi.add(temp);

@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-public class Main {
+public final class Main {
+
+	private Main() {}
 
     public static void main(String[] args) {
 	    /*System.out.println("Cilj vježbe je napraviti aplikaciju \"ETF Telefonski imenik\". Aplikacija se treba sastojati od sljedećih klasa:\n" +

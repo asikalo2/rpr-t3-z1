@@ -10,18 +10,18 @@ public class MedunarodniBroj extends TelefonskiBroj {
     private String drzava;
     private String broj;
 
-    MedunarodniBroj(String drzava, String broj){
-    this.drzava=drzava;
-    this.broj=broj;
+    MedunarodniBroj(String drzava1, String broj1){
+    this.drzava=drzava1;
+    this.broj=broj1;
     }
 
     @Override
-    public String ispisi() {
+    public final String ispisi() {
         return (this.drzava + "/" + this.broj);
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Objects.hash(this.drzava, this.broj);
     }
 }

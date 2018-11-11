@@ -4,33 +4,33 @@ import java.util.Objects;
 
 public class FiksniBroj extends TelefonskiBroj {
 
-    enum Grad {SARAJEVO, TUZLA, ZENICA};
+    enum Grad {SARAJEVO, TUZLA, ZENICA}
 
     private String broj;
     private Grad grad;
 
-    FiksniBroj(Grad grad, String broj){
-        this.broj = broj;
-        this.grad = grad;
+    FiksniBroj(Grad grad1, String broj1){
+        this.broj = broj1;
+        this.grad = grad1;
 
     }
 
-    public Grad getGrad() {
+    public final Grad getGrad() {
         return grad;
     }
 
     @Override
-    public String ispisi() {
+    public final String ispisi() {
         return getKodGrada(this.grad) + "/" + this.broj;
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Objects.hash(this.grad, this.broj);
     }
 
-    public String getKodGrada(Grad grad){
-        switch (grad) {
+    public final String getKodGrada(Grad grad1){
+        switch (grad1) {
             case SARAJEVO:
                 return "033";
 
